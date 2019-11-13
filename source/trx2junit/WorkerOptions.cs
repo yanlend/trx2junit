@@ -30,6 +30,7 @@ namespace trx2junit
                     {
                         i++;
                         outputDirectory = args[i];
+                        continue;
                     }
                     else
                     {
@@ -39,11 +40,10 @@ namespace trx2junit
                 else if (args[i] == "--junit2trx")
                 {
                     convertToJunit = false;
+                    i++;
                 }
-                else
-                {
-                    inputFiles.Add(args[i]);
-                }
+
+                inputFiles.Add(args[i]);
             }
 
             return new WorkerOptions(inputFiles, outputDirectory, convertToJunit);
